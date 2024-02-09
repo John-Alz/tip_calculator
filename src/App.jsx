@@ -11,19 +11,6 @@ function App() {
     people: ""
   });
 
-  // useEffect(() => {
-  //   calculo()
-  // }, [input.bill])
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setInput({
-      ...input,
-      [name]: value
-    })
-    console.log(input);
-  }
-
   const calculo = () => {
     let porcentaje = !input.custom ? input.porcentajeDef : input.custom;
     let cantidad = input.bill;
@@ -36,9 +23,26 @@ function App() {
     setTotal(totalPorPerson)
   }
 
-  const handleClick = () => {
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInput({
+      ...input,
+      [name]: value 
+    })
+    console.log(input);
     calculo()
   }
+
+
+
+  useEffect(() => {
+    calculo()
+  }, [input.bill, input.porcentajeDef, input.custom, input.people])
+
+  // const handleClick = () => {
+  //   calculo()
+  // }
 
   const handleSubmit = (e) => {
     const { name, value } = e.target;
@@ -60,7 +64,7 @@ function App() {
     setTotal("$0.00")
   }
 
-  let checkPercentage = {
+  const checkPercentage = {
     inputUno: 5,
     inputDos: 10,
     inputTres: 15,
@@ -69,50 +73,74 @@ function App() {
   };
 
   return (
-    <>
-      <div>
-        <div className='left_container'>
-          <form>
-            <label>Bill</label>
+    <div className=' flex items-center justify-center pt-32'>
+      <div className='bg-white w-3/5 flex flex-row'>
+        <div className='w-3/6 '>
+          <form className='flex flex-col pb-10'>
+            <label className=''>Bill</label>
             <input
+            className='px-4 py-2 rounded-lg'
+            style={{backgroundColor: "#F3F8FA"}}
               type='number'
               value={input.bill}
               name='bill'
               onChange={handleChange}
             />
           </form>
-          <div>
-            <button onClick={handleSubmit} value={checkPercentage.inputUno} name='porcentajeDef'>5%</button>
-            <button onClick={handleSubmit} value={checkPercentage.inputDos} name='porcentajeDef'>10%</button>
-            <button onClick={handleSubmit} value={checkPercentage.inputTres} name='porcentajeDef'>15%</button>
-            <button onClick={handleSubmit} value={checkPercentage.inputCuatro} name='porcentajeDef'>25%</button>
-            <button onClick={handleSubmit} value={checkPercentage.inputCuatro} name='porcentajeDef'>50%</button>
+          <p className='pb-3'>Select Tip %</p>
+          <div className='grid gap-4 grid-cols-3 grid-rows-2 pb-10'>
+            <button className='w-22 text-white rounded-lg' style={{backgroundColor: "#00474B"}} onClick={handleSubmit} value={checkPercentage.inputUno} name='porcentajeDef'>5%</button>
+            <button className='w-22 text-white rounded-lg' style={{backgroundColor: "#00474B"}} onClick={handleSubmit} value={checkPercentage.inputDos} name='porcentajeDef'>10%</button>
+            <button className='w-22 text-white rounded-lg' style={{backgroundColor: "#00474B"}}  onClick={handleSubmit} value={checkPercentage.inputTres} name='porcentajeDef'>15%</button>
+            <button className='w-22 text-white rounded-lg' style={{backgroundColor: "#00474B"}}  onClick={handleSubmit} value={checkPercentage.inputCuatro} name='porcentajeDef'>25%</button>
+            <button className='w-22 text-white rounded-lg' style={{backgroundColor: "#00474B"}}  onClick={handleSubmit} value={checkPercentage.inputCuatro} name='porcentajeDef'>50%</button>
             <input
+            className='w-22 p-2 rounded-lg'
+            style={{backgroundColor: "#F3F8FA"}}
               type='number'
               value={input.custom}
               name='custom'
               onChange={handleChange}
+              placeholder='CUSTOM'
             />
 
           </div>
-          <form>
+          <form className='flex flex-col pb-10'>
             <label>Number of poeple</label>
             <input
+            className='px-4 py-2 rounded-lg'
+            style={{backgroundColor: "#F3F8FA"}}
               type='number'
               value={input.people}
               name='people'
               onChange={handleChange}
             />
           </form>
-          <button onClick={handleClick}>clauclar</button>
         </div>
-        <div className='right_container'>
-          <p>tip mount {tip}</p>
-          <p>total {total}</p>
-          <button onClick={handleReset}>Reset</button>
+        <div className='w-3/6' style={{backgroundColor: "#00474B"}}>
+        <div className='flex flex-row'>
+          <div>
+          <p className='text-white'>Tip Amount</p>
+          <p className='text-slate-400'>/ person</p>
+        </div>
+          <div className='pl-10'>
+          <p style={{color: "#28BFAC"}}>{tip}</p>
+          </div>
+        </div>
+        k
+        <div className='flex flex-row'>
+          <div>
+          <p className='text-white'>Total</p>
+          <p className='text-slate-400'>/ person</p>
+        </div>
+          <div className='pl-10'>
+          <p style={{color: "#28BFAC"}}>{total}</p>
+          </div>
+        </div>
+          <button className='w-4/6 text-white rounded-lg p-2' style={{backgroundColor: "#28BFAC", color: "#00474B"}} onClick={handleReset}>Reset</button>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
