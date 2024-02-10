@@ -1,5 +1,5 @@
 let catindad = 20000;
-let porcentaje = 60;
+let porcentaje = 40;
 let resultado = (catindad * porcentaje)  / 100;
 console.log(resultado);
 let divison = resultado / 5;
