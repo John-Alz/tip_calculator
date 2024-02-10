@@ -148,7 +148,7 @@ function App() {
               <p className='text-white'>Tip Amount</p>
               <p className='text-slate-400'>/ person</p>
             </div>
-            <div className='pl-10 lg:text-5xl md:text-3xl'>
+            <div className='pl-10 lg:text-5xl md:text-3xl sm:text-3xl'>
               <p style={{ color: "#28BFAC" }}>${tip}</p>
             </div>
           </div>
@@ -157,7 +157,7 @@ function App() {
               <p className='text-white'>Total</p>
               <p className='text-slate-400'>/ person</p>
             </div>
-            <div className='pl-10 lg:text-5xl md:text-3xl'>
+            <div className='pl-10 lg:text-5xl md:text-3xl sm:text-3xl'>
               <p style={{ color: "#28BFAC" }}>${total}</p>
             </div>
           </div>
