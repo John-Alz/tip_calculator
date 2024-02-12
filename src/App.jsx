@@ -92,7 +92,7 @@ function App() {
   
 
   return (
-    <div className='flex items-center justify-center pt-24'>
+    <div className='flex justify-center items-center h-screen'>
     <div className='bg-white flex flex-col lg:flex-row lg:w-3/5 md:w-[90%] sm:w-[100%] rounded-2xl'>
       <div className='w-[90%] mx-auto mt-8 lg:w-[50%] '>
         <form className='flex flex-col pb-10'>
