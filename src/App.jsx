@@ -94,7 +94,7 @@ function App() {
   return (
     <div className='flex items-center justify-center pt-24'>
     <div className='bg-white flex flex-col lg:flex-row lg:w-3/5 md:w-[90%] sm:w-[100%] rounded-2xl'>
-      <div className='lg:w-2/4 lg:py-10 lg:pl-10 sm:w-full sm:pl-4 sm:pt-8'>
+      <div className='w-[90%] mx-auto mt-8 lg:w-[50%] '>
         <form className='flex flex-col pb-10'>
           <label className='pb-2' style={{ color: "hsl(186, 14%, 43%)" }}>Bill</label>
           <input
@@ -108,7 +108,7 @@ function App() {
           />
         </form>
         <p className='pb-2' style={{ color: "hsl(186, 14%, 43%)" }}>Select Tip %</p>
-        <div className='grid gap-4 grid-cols-3 grid-rows-2 pb-10'>
+        <div className='grid gap-4 grid-cols-2 grid-rows-3 md:grid-cols-3 grid-rows-2 pb-10'>
           {infoMap.map((item) => (
             <button className='w-22 text-white text-2xl rounded-md'
               style={{ backgroundColor: isHovered == item.inputId ? " hsl(172, 67%, 45%)" : "#00474B" }}
@@ -141,14 +141,14 @@ function App() {
           />
         </form>
       </div>
-      <div className='lg:w-2/5 lg:rounded-2xl lg:my-8 lg:ml-14 sm:w-full sm:ml-2 sm:mr-10' style={{ backgroundColor: "#00474B" }}>
+      <div className='w-[90%] rounded-2xl my-8 mx-auto lg:w-[40%] ' style={{ backgroundColor: "#00474B" }}>
         <div className='mt-12'>
           <div className='flex flex-row place-content-around pb-12'>
             <div>
               <p className='text-white'>Tip Amount</p>
               <p className='text-slate-400'>/ person</p>
             </div>
-            <div className='pl-10 lg:text-5xl md:text-3xl sm:text-3xl'>
+            <div className='text-3xl pl-10 md:text-4xl lg:text-[46px]'>
               <p style={{ color: "#28BFAC" }}>${tip}</p>
             </div>
           </div>
@@ -157,11 +157,11 @@ function App() {
               <p className='text-white'>Total</p>
               <p className='text-slate-400'>/ person</p>
             </div>
-            <div className='pl-10 lg:text-5xl md:text-3xl sm:text-3xl'>
+            <div className='text-3xl pl-10 md:text-4xl  lg:text-[46px]'>
               <p style={{ color: "#28BFAC" }}>${total}</p>
             </div>
           </div>
-          <div className='flex justify-center pt-36'>
+          <div className='flex justify-center pt-12 pb-10 lg:pt-36'>
             <button className='w-5/6 text-white rounded-lg p-2' style={{ backgroundColor: "#28BFAC", color: "#00474B", fontSize: "24px" }} onClick={handleReset}>Reset</button>
           </div>
         </div>
